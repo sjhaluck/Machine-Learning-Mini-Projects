@@ -30,8 +30,8 @@ plt.show()
 
 ### your code here!  name your classifier object clf if you want the
 ### visualization code (prettyPicture) to show you the decision boundary
-from sklearn.ensemble import RandomForestClassifier
-clf = RandomForestClassifier(n_estimators=25, criterion='entropy', max_depth=3, random_state=10)
+from sklearn.ensemble import AdaBoostClassifier
+clf = AdaBoostClassifier(n_estimators=15, random_state=10)
 clf.fit(features_train, labels_train)
 print clf.score(features_test, labels_test)
 
