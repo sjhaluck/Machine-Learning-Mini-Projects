@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import sys
 sys.path.append("../tools/")
 from feature_format import featureFormat, targetFeatureSplit
-
+from sklearn.preprocessing import MinMaxScaler
 
 
 
@@ -23,6 +23,7 @@ def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature
     ### plot each cluster with a different color--add more colors for
     ### drawing more than five clusters
     colors = ["b", "c", "k", "m", "g"]
+
     for ii, pp in enumerate(pred):
         plt.scatter(features[ii][0], features[ii][1], color = colors[pred[ii]])
 
