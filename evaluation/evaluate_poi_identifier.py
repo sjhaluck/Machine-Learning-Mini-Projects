@@ -26,6 +26,21 @@ labels, features = targetFeatureSplit(data)
 
 
 
-### your code goes here 
+### your code goes here
+from sklearn import cross_validation
+features_train, features_test, labels_train, labels_test = cross_validation.train_test_split(
+    features, labels, test_size = 0.3, random_state = 42)
 
+from sklearn import tree
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(features_train, labels_train)
+print clf.score(features_test, labels_test)
+print sum(clf.predict(features_test))
+print len(clf.predict(features_test))
+for i in range(len(features_test)):
+    if clf.predict(features_test[i].reshape(-1,1)) == 1 and labels_test[i] == 1:
+        print "TRUE POSITIVE"
 
+from sklearn.metrics import precision_score, recall_score
+print precision_score(labels_test, clf.predict(features_test))
+print recall_score(labels_test, clf.predict(features_test))
